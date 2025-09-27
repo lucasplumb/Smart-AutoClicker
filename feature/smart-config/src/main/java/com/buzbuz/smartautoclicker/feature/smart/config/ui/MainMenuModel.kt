@@ -201,8 +201,8 @@ class MainMenuModel @Inject constructor(
     fun setStopWithVolumeDownDontShowAgain(): Unit =
         tutorialRepository.setStopWithVolumeDownDontShowAgain()
 
-    private fun UserBillingState.isAdRequested(): Boolean =
-        this == false //UserBillingState.AD_REQUESTED
+    //private fun UserBillingState.isAdRequested(): Boolean =
+    //    this == false //UserBillingState.AD_REQUESTED
 }
 
 sealed class UiState {
