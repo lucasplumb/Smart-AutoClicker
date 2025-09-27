@@ -108,9 +108,9 @@ class MainMenu(private val onStopClicked: () -> Unit) : OverlayMenu() {
         setOverlayViewVisibility(false)
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                launch { viewModel.paywallIsVisible.collect(::updateVisibilityForPaywall) }
-            }
+            //repeatOnLifecycle(Lifecycle.State.CREATED) {
+           //     launch { viewModel.paywallIsVisible.collect(::updateVisibilityForPaywall) }
+            //}
         }
 
         lifecycleScope.launch {
