@@ -54,7 +54,7 @@ class MainMenuModel @Inject constructor(
     private val detectionRepository: DetectionRepository,
     private val editionRepository: EditionRepository,
     private val tutorialRepository: TutorialRepository,
-    private val revenueRepository: IRevenueRepository,
+    //private val revenueRepository: IRevenueRepository,
     private val monitoredViewsManager: MonitoredViewsManager,
     private val debugRepository: DebuggingRepository,
 ) : ViewModel() {
@@ -70,8 +70,8 @@ class MainMenuModel @Inject constructor(
     private var paywallResultJob: Job? = null
 
     /** Tells if the paywall is currently displayed. */
-    val paywallIsVisible: Flow<Boolean> =
-        revenueRepository.isBillingFlowInProgress
+    val paywallIsVisible: Flow<Boolean> = false
+        //revenueRepository.isBillingFlowInProgress
 
     /** The current of the detection. */
     val detectionState: StateFlow<UiState> = detectionRepository.detectionState
@@ -103,7 +103,7 @@ class MainMenuModel @Inject constructor(
 
     /** Load an advertisement, if needed. Should be called before showing the paywall to reduce user waiting time. */
     fun loadAdIfNeeded(context: Context) {
-        revenueRepository.loadAdIfNeeded(context)
+        //revenueRepository.loadAdIfNeeded(context)
     }
 
     /** Start/Stop the detection. */
@@ -111,8 +111,9 @@ class MainMenuModel @Inject constructor(
         when (detectionState.value) {
             UiState.Detecting -> stopDetection()
             UiState.Idle -> {
-                if (revenueRepository.userBillingState.value.isAdRequested()) startPaywall(context)
-                else startDetection(context)
+                //if (revenueRepository.userBillingState.value.isAdRequested()) startPaywall(context)
+                //else 
+                startDetection(context)
             }
         }
     }
@@ -126,7 +127,7 @@ class MainMenuModel @Inject constructor(
     }
 
     private fun startPaywall(context: Context) {
-        revenueRepository.startPaywallUiFlow(context)
+        /*revenueRepository.startPaywallUiFlow(context)
 
         paywallResultJob = combine(revenueRepository.isBillingFlowInProgress, revenueRepository.userBillingState) { inProgress, state ->
             if (inProgress) return@combine
@@ -136,7 +137,7 @@ class MainMenuModel @Inject constructor(
             if (!state.isAdRequested()) startDetection(context)
             paywallResultJob?.cancel()
             paywallResultJob = null
-        }.launchIn(viewModelScope)
+        }.launchIn(viewModelScope)*/
     }
 
     private fun startDetection(context: Context) {
@@ -144,7 +145,7 @@ class MainMenuModel @Inject constructor(
             detectionRepository.startDetection(
                 context,
                 debugRepository.getDebugDetectionListenerIfNeeded(context),
-                revenueRepository.consumeTrial(),
+                //revenueRepository.consumeTrial(),
             )
         }
     }
@@ -201,7 +202,7 @@ class MainMenuModel @Inject constructor(
         tutorialRepository.setStopWithVolumeDownDontShowAgain()
 
     private fun UserBillingState.isAdRequested(): Boolean =
-        this == UserBillingState.AD_REQUESTED
+        this == false //UserBillingState.AD_REQUESTED
 }
 
 sealed class UiState {
