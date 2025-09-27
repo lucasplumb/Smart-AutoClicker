@@ -24,8 +24,8 @@ import androidx.lifecycle.ViewModel
 import com.buzbuz.smartautoclicker.core.base.workarounds.isImpactedByInputBlock
 import com.buzbuz.smartautoclicker.core.common.quality.domain.QualityRepository
 import com.buzbuz.smartautoclicker.core.settings.SettingsRepository
-import com.buzbuz.smartautoclicker.feature.revenue.IRevenueRepository
-import com.buzbuz.smartautoclicker.feature.revenue.UserBillingState
+//import com.buzbuz.smartautoclicker.feature.revenue.IRevenueRepository
+//import com.buzbuz.smartautoclicker.feature.revenue.UserBillingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
@@ -36,7 +36,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
     private val qualityRepository: QualityRepository,
-    private val revenueRepository: IRevenueRepository,
+    //private val revenueRepository: IRevenueRepository,
     private val settingsRepository: SettingsRepository,
 ) : ViewModel() {
 
@@ -61,8 +61,8 @@ class SettingsViewModel @Inject constructor(
     val shouldShowPrivacySettings: Flow<Boolean> =
         revenueRepository.isPrivacySettingRequired
 
-    val shouldShowPurchase: Flow<Boolean> =
-        revenueRepository.userBillingState.map { billingState ->
+    val shouldShowPurchase: Boolean = false
+        //revenueRepository.userBillingState.map { billingState ->
             billingState != UserBillingState.PURCHASED
         }
 
@@ -91,11 +91,11 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun showPrivacySettings(activity: Activity) {
-        revenueRepository.startPrivacySettingUiFlow(activity)
+       //revenueRepository.startPrivacySettingUiFlow(activity)
     }
 
     fun showPurchaseActivity(context: Context) {
-        revenueRepository.startPurchaseUiFlow(context)
+        //revenueRepository.startPurchaseUiFlow(context)
     }
 
     fun showTroubleshootingDialog(activity: FragmentActivity) {
