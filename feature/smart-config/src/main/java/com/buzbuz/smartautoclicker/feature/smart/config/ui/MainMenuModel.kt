@@ -70,7 +70,7 @@ class MainMenuModel @Inject constructor(
     private var paywallResultJob: Job? = null
 
     /** Tells if the paywall is currently displayed. */
-    val paywallIsVisible: Flow<Boolean> = false
+    val paywallIsVisible: Boolean = false
         //revenueRepository.isBillingFlowInProgress
 
     /** The current of the detection. */
