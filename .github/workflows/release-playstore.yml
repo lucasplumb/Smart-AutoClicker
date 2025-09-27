@@ -34,7 +34,7 @@ jobs:
           -PsigningStorePassword="${{ secrets.SIGNING_STORE_PASSWORD }}" \
           -PsigningKeyAlias="${{ secrets.SIGNING_KEY_ALIAS }}" \
           -PsigningKeyPassword="${{ secrets.SIGNING_KEY_PASSWORD }}" \
-          assemblePlayStoreRelease bundlePlayStoreRelease smartautoclicker:uploadCrashlyticsSymbolFilePlayStoreRelease
+          assemblePlayStoreRelease bundlePlayStoreRelease
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
