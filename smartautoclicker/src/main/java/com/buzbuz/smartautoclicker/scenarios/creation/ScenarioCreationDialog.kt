@@ -155,8 +155,8 @@ class ScenarioCreationDialog : DialogFragment() {
                 }
                 ScenarioTypeSelection.SMART -> {
                     scenarioTypeDescription.setText(state.smartItem.descriptionText)
-                    scenarioTypeDescriptionNotPurchased.visibility =
-                        if (state.showPaidLimitationWarning) View.VISIBLE else View.GONE
+                    scenarioTypeDescriptionNotPurchased.visibility = View.VISIBLE
+                        //if (state.showPaidLimitationWarning) View.VISIBLE else View.GONE
                 }
             }
         }
