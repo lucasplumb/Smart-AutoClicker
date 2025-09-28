@@ -68,13 +68,12 @@ class ScenarioCreationViewModel @Inject constructor(
         MutableStateFlow(ScenarioTypeSelection.SMART)
 private val fbool: Boolean = false
     val scenarioTypeSelectionState: Flow<ScenarioTypeSelectionState> =
-        combine(_selectedType, fbool) { selectedType, false ->
-        //combine(_selectedType) { selectedType ->
+        combine(_selectedType) { selectedType ->
             ScenarioTypeSelectionState(
                 dumbItem = ScenarioTypeItem.Dumb,
                 smartItem = ScenarioTypeItem.Smart,
                 selectedItem = selectedType,
-                showPaidLimitationWarning = false
+                showPaidLimitationWarning = fbool
             )
         }
 
@@ -151,7 +150,7 @@ data class ScenarioTypeSelectionState(
     val dumbItem: ScenarioTypeItem.Dumb,
     val smartItem: ScenarioTypeItem.Smart,
     val selectedItem: ScenarioTypeSelection,
-val showPaidLimitationWarning: Boolean
+    val showPaidLimitationWarning: Boolean,
 )
 
 sealed class ScenarioTypeItem(val titleRes: Int, val iconRes: Int, val descriptionText: Int) {
