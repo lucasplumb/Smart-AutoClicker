@@ -58,13 +58,13 @@ class SettingsViewModel @Inject constructor(
     val shouldShowEntireScreenCapture: Flow<Boolean> =
         flowOf(Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM)
 
-    val shouldShowPrivacySettings: Flow<Boolean> =
-        revenueRepository.isPrivacySettingRequired
+    val shouldShowPrivacySettings: Flow<Boolean> = flowOf(false) //=
+        //revenueRepository.isPrivacySettingRequired
 
-    val shouldShowPurchase: Boolean = false
+    val shouldShowPurchase: Flow<Boolean> = flowOf(false)
         //revenueRepository.userBillingState.map { billingState ->
-            billingState != UserBillingState.PURCHASED
-        }
+            //billingState != UserBillingState.PURCHASED
+        //}
 
     val shouldShowInputBlockWorkaround: Flow<Boolean> =
         flowOf(isImpactedByInputBlock())
