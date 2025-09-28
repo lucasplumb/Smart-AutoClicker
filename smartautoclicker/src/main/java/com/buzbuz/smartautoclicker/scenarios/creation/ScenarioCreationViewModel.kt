@@ -135,7 +135,7 @@ private val fbool: <Boolean> = false
 
     private fun getDefaultDetectionQuality(): Int {
         val displaySize = displayConfigManager.displayConfig.sizePx
-        val biggestScreenSideSize: Int = max(displaySize.x, displaySize.y
+        val biggestScreenSideSize: Int = max(displaySize.x, displaySize.y)
 
         return max(
             DETECTION_QUALITY_MIN.toInt(),
