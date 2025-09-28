@@ -66,7 +66,7 @@ class ScenarioCreationViewModel @Inject constructor(
 
     private val _selectedType: MutableStateFlow<ScenarioTypeSelection> =
         MutableStateFlow(ScenarioTypeSelection.SMART)
-private val fbool: <Boolean> = false
+private val fbool: Boolean = false
     val scenarioTypeSelectionState: Flow<ScenarioTypeSelectionState> =
         combine(_selectedType, fbool) { selectedType, false ->
         //combine(_selectedType) { selectedType ->
