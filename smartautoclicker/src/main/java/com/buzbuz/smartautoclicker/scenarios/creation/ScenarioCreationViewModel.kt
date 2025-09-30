@@ -63,7 +63,8 @@ class ScenarioCreationViewModel @Inject constructor(
         .take(1)
     val nameError: Flow<Boolean> = _name
         .map { it.isNullOrEmpty() }
-private val bval: Flow<Boolean> = flow{ false }
+private val bval: Flow<Boolean> = _name
+        .map { it.isNullOrEmpty() }
     private val _selectedType: MutableStateFlow<ScenarioTypeSelection> =
         MutableStateFlow(ScenarioTypeSelection.SMART)
     val scenarioTypeSelectionState: Flow<ScenarioTypeSelectionState> =  combine(_selectedType, bval){ selectedType, bvalue ->
