@@ -66,11 +66,11 @@ class ScenarioCreationViewModel @Inject constructor(
 
     private val _selectedType: MutableStateFlow<ScenarioTypeSelection> =
         MutableStateFlow(ScenarioTypeSelection.SMART)
-    val scenarioTypeSelectionState: Flow<ScenarioTypeSelectionState> = combine(_selectedType) { selectedType ->
+    val scenarioTypeSelectionState: Flow<ScenarioTypeSelectionState> = Flow { 
             ScenarioTypeSelectionState(
                 dumbItem = ScenarioTypeItem.Dumb,
                 smartItem = ScenarioTypeItem.Smart,
-                selectedItem = selectedType,
+                selectedItem = _selectedType,
                 showPaidLimitationWarning = false
             )
 }
