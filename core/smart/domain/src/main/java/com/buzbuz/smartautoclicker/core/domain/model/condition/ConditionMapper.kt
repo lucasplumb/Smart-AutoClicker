@@ -60,6 +60,7 @@ private fun TriggerCondition.OnBroadcastReceived.toBroadcastReceivedEntity(): Co
         type = ConditionType.ON_BROADCAST_RECEIVED,
         broadcastAction = intentAction,
         priority = 0,
+    extras = intentExtras.map { it.toDomainIntentExtra(cleanIds) }.toMutableList(),
     )
 
 private fun TriggerCondition.OnCounterCountReached.toCounterReachedEntity(): ConditionEntity {
