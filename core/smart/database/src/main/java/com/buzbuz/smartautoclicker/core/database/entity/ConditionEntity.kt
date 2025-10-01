@@ -85,6 +85,7 @@ data class ConditionEntity(
     // ConditionType.ON_BROADCAST_RECEIVED
     @ColumnInfo(name = "broadcast_action") val broadcastAction: String? = null,
     @ColumnInfo(name = "intent_action") val intentAction: String? = null,
+    @ColumnInfo(name = "intent_extras") val intentExtras: List<IntentExtraEntity>? = null,
 
     // ConditionType.ON_COUNTER_REACHED
     @ColumnInfo(name = "counter_name") val counterName: String? = null,
