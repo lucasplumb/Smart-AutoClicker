@@ -122,6 +122,7 @@ private fun ConditionEntity.toDomainBroadcastReceived(cleanIds: Boolean = false)
         eventId = Identifier(id = eventId, asTemporary = cleanIds),
         name = name,
         intentAction = broadcastAction!!,
+        extras = intentExtras!!,
     )
 
 private fun ConditionEntity.toDomainCounterReached(cleanIds: Boolean = false): TriggerCondition =
