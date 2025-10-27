@@ -159,7 +159,8 @@ enum class IntentExtraType {
     INTEGER,
     FLOAT,
     SHORT,
-    STRING
+    STRING,
+    COUNTER
 }
 
 /** The list of supported system actions. */
