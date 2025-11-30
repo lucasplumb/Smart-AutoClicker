@@ -311,4 +311,4 @@ private const val TAG = "ActionExecutor"
 /** Waiting delay after a start activity to avoid overflowing the system. */
 private const val INTENT_START_ACTIVITY_DELAY = 1000L
 /** Waiting delay after a broadcast to avoid overflowing the system. */
-private const val INTENT_BROADCAST_DELAY = 100L
+private const val INTENT_BROADCAST_DELAY = 0L
