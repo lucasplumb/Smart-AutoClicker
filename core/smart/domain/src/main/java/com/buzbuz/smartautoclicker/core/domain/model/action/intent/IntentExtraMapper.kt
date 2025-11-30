@@ -44,7 +44,6 @@ internal fun IntentExtraEntity.toDomainIntentExtra(cleanIds: Boolean = false) = 
     IntentExtraType.FLOAT -> IntentExtra(Identifier(id, cleanIds), Identifier(actionId, cleanIds), key, value.toFloat())
     IntentExtraType.SHORT -> IntentExtra(Identifier(id, cleanIds), Identifier(actionId, cleanIds), key, value.toShort())
     IntentExtraType.STRING -> IntentExtra(Identifier(id, cleanIds), Identifier(actionId, cleanIds), key, value)
-    IntentExtraType.COUNTER -> IntentExtra(Identifier(id, cleanIds), Identifier(actionId, cleanIds), key, counterMap[key])
 }
 
 private fun <T> T?.toIntentExtraType(): IntentExtraType = when (this) {
@@ -56,6 +55,5 @@ private fun <T> T?.toIntentExtraType(): IntentExtraType = when (this) {
     is Float -> IntentExtraType.FLOAT
     is Short -> IntentExtraType.SHORT
     is String -> IntentExtraType.STRING
-    is Counter -> IntentExtraType.COUNTER
     else -> throw IllegalArgumentException("Unsupported value type")
 }
